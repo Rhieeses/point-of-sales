@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ProductList } from "@/fake-data";
-import { ProductCard } from "./products-card";
-import { ProductModal } from "./product-modal";
+import { ProductCard } from "../cards/products-card";
+import { ProductModal } from "../cards/product-modal";
 import { ProductProps } from "@/types";
 
 export function Products() {

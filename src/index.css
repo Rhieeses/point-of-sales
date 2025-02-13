@@ -62,7 +62,7 @@ body {
     }
 
     h1 {
-        @apply text-2xl font-bold;
+        @apply text-sm font-bold md:text-xs lg:text-2xl;
     }
 
     svg {
@@ -80,7 +80,7 @@ body {
     }
 
     .label {
-        @apply text-gray-500;
+        @apply text-sm text-gray-500 md:text-base lg:text-lg;
     }
 }
 

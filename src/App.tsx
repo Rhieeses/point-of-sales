@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PointOfSales from "./pages/point-of-sales/point-of-sales";
+import PointOfSales from "./features/point-of-sales/point-of-sales";
 import "./index.css";
 
 function App() {

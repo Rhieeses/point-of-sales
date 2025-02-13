@@ -1,4 +1,4 @@
-import { CategoryCardProps } from "../../../types";
+import { CategoryCardProps } from "@/types";
 
 export function CategoryCard({ props }: { props: CategoryCardProps }) {
     return (

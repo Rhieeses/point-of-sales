@@ -18,7 +18,7 @@ export function ProductCard({ props, handleItemClick }: ProductCardProps) {
                     alt={props.name}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full rounded-2xl object-cover"
+                    className="invisible h-full w-full rounded-2xl object-cover"
                 />
             </div>
             <div className="flex w-full flex-col items-start justify-end space-y-2">

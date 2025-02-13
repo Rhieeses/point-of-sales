@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
     Dialog,
     DialogContent,
@@ -6,9 +5,11 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
-import { Minus, Plus } from "lucide-react";
-import { Badge } from "@/components/custom/badge";
+import { Button } from "@/components/ui/button";
+import { ItemCard } from "./item-card";
 import { ProductProps } from "@/types";
+import { Minus, Plus } from "lucide-react";
+import { useReducer } from "react";
 
 type ProductModalProps = {
     props?: ProductProps | null;
@@ -24,7 +25,7 @@ export function ProductModal({
     return (
         <Dialog open={openModal} onOpenChange={setOpenModal}>
             <DialogContent
-                className="w-[100rem] rounded-2xl border-none p-0"
+                className="rounded-2xl border-none p-0"
                 aria-describedby="item-description"
             >
                 <DialogHeader className="pt-5">
@@ -66,36 +67,21 @@ export function ProductModal({
     );
 }
 
-const ItemCard = ({ props }: ProductModalProps) => {
-    if (!props) {
-        return <div>No selected items</div>;
-    }
-    return (
-        <div className="item-card space-y-5 pt-0">
-            <div className="item-header box-content rounded-2xl bg-gray-300/20 p-3">
-                <img
-                    src={props.image}
-                    alt={props.name}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-[20rem] w-full rounded-2xl object-cover"
-                />
-            </div>
-            <span className="item-footer flex flex-col items-start gap-1 px-5">
-                <Badge category="cake" />
-                <h2 className="text-2xl font-semibold">{props.name}</h2>
-
-                <p className="description label">{props.description}</p>
-
-                <span className="price text-2xl text-blue-500">
-                    ₱ {props.price}.00
-                </span>
-            </span>
-        </div>
-    );
-};
-
 const QuantityButton = () => {
+    const quantityReducer = ({
+        state,
+        action,
+    }: {
+        state: number;
+        action: string;
+    }) => {
+        switch (action) {
+            case "increment":
+        }
+    };
+
+    //const[state, dispatch] = useReducer(quantityReducer, {quantity: 0});
+
     return (
         <div className="quantity-container box-style flex w-full items-center bg-gray-200/20 p-2 px-5">
             <Minus />

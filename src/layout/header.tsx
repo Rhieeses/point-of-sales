@@ -1,14 +1,12 @@
 import { Menu } from "lucide-react";
 import { Time } from "./time";
 import { CloseMenu } from "./close-menu";
-import { CategoryCard } from "./category-card";
 import { Search } from "lucide-react";
-import { categories } from "@/fake-data";
 import { SidebarMenu } from "@/components/custom/sidebar-menu";
 
-export default function Header() {
+export function Header() {
     return (
-        <header className="border-b-[1px] border-dashed border-gray-500/40 pb-2">
+        <header>
             <nav>
                 <div className="justify- mt-2 flex items-center gap-2">
                     <div className="flex items-center gap-10">
@@ -27,12 +25,6 @@ export default function Header() {
                     </div>
 
                     <CloseMenu />
-                </div>
-
-                <div className="categories grid grid-cols-6 gap-4">
-                    {categories.map((category) => (
-                        <CategoryCard key={category.id} props={category} />
-                    ))}
                 </div>
             </nav>
         </header>
