@@ -89,6 +89,33 @@ export const ProductList = [
         description:
             "A deliciously fruity smoothie made with fresh strawberries, yogurt, and a hint of honey.",
     },
+    {
+        id: 18,
+        name: "Hot Chocolate",
+        price: "140",
+        category: "beverage",
+        image: "https://images.pexels.com/photos/3551717/pexels-photo-3551717.png?auto=compress&cs=tinysrgb",
+        description:
+            "A comforting drink made with rich cocoa, steamed milk, and topped with whipped cream.",
+    },
+    {
+        id: 19,
+        name: "Iced Vanilla Latte",
+        price: "175",
+        category: "coffee",
+        image: "https://images.pexels.com/photos/350478/pexels-photo-350478.jpeg?auto=compress&cs=tinysrgb",
+        description:
+            "A refreshing cold coffee drink made with espresso, vanilla syrup, and chilled milk over ice.",
+    },
+    {
+        id: 11,
+        name: "Strawberry Smoothie",
+        price: "180",
+        category: "smoothie",
+        image: "https://images.pexels.com/photos/11976986/pexels-photo-11976986.jpeg?auto=compress&cs=tinysrgb",
+        description:
+            "A deliciously fruity smoothie made with fresh strawberries, yogurt, and a hint of honey.",
+    },
 ];
 
 export const categories = [
@@ -128,5 +155,43 @@ export const categories = [
         icon: "fa-solid fa-blender",
         name: "Smoothies",
         quantity: 20,
+    },
+];
+
+export const CartListData = [
+    {
+        id: 1,
+        name: "Barako Coffee",
+        price: 120,
+        quantity: 2,
+        image: "https://heroui.com/images/hero-card-complete.jpeg",
+    },
+    {
+        id: 2,
+        name: "Kape't Gatas",
+        price: 90,
+        quantity: 1,
+        image: "https://heroui.com/images/hero-card-complete.jpeg",
+    },
+    {
+        id: 3,
+        name: "Ensaymada",
+        price: 75,
+        quantity: 1,
+        image: "https://heroui.com/images/hero-card-complete.jpeg",
+    },
+    {
+        id: 4,
+        name: "Pandesal",
+        price: 50,
+        quantity: 3,
+        image: "https://heroui.com/images/hero-card-complete.jpeg",
+    },
+    {
+        id: 5,
+        name: "Ube Cheese Pandesal",
+        price: 85,
+        quantity: 5,
+        image: "https://heroui.com/images/hero-card-complete.jpeg",
     },
 ];

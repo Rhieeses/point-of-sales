@@ -1,47 +1,16 @@
+import { useState } from "react";
 import {
     Sheet,
     SheetContent,
     SheetHeader,
     SheetTitle,
     SheetTrigger,
-} from "../ui/sheet";
+} from "../../../../components/ui/sheet";
+import { SidebarMenuList } from "./sidebar-list";
 import { ChevronDown, LogOut, X } from "lucide-react";
-import { useState } from "react";
 
 type SidebarMenuProps = {
     children: React.ReactElement;
-};
-
-const SidebarMenuList = () => {
-    const listStyle =
-        "group flex w-full p-4 hover:bg-blue-200/70 cursor-pointer  items-center  gap-10 text-xl ";
-    const iconStyle =
-        "group-hover:text-white group-hover:bg-blue-500 rounded-full bg-gray-300/50 p-4 text-2xl duration-200";
-
-    return (
-        <div className="flex h-[78%] items-center p-0">
-            <ul className="w-full space-y-2">
-                <li className={listStyle}>
-                    <i className={`fa-solid fa-cash-register ${iconStyle}`}></i>
-                    <span> Point of Sales</span>
-                </li>
-                <li className={listStyle}>
-                    <i className={`fa-solid fa-boxes-stacked ${iconStyle}`}></i>
-                    <span>Inventory</span>
-                </li>
-                <li className={listStyle}>
-                    <i
-                        className={`fa-solid fa-arrow-trend-up ${iconStyle}`}
-                    ></i>
-                    <span>Report</span>
-                </li>
-                <li className={listStyle}>
-                    <i className={`fa-solid fa-gear ${iconStyle}`}></i>
-                    <span>Settings</span>
-                </li>
-            </ul>
-        </div>
-    );
 };
 
 export function SidebarMenu({ children }: SidebarMenuProps) {
@@ -55,7 +24,7 @@ export function SidebarMenu({ children }: SidebarMenuProps) {
             <SheetContent
                 side="left"
                 className="bg-gray-100 p-0"
-                aria-description="Sidebar menu"
+                aria-describedby={undefined}
             >
                 <SheetHeader className="bg-white px-2 py-5">
                     <SheetTitle className="flex w-full items-center gap-2">

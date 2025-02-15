@@ -1,14 +1,22 @@
-import Layout from "../../layout/layout";
-import { Products } from "./components/list/products";
-import { CategoryList } from "./components/list/category-list";
+import React, { Suspense } from "react";
+import { CategoryList } from "./components/category/category-list";
+import { ProductModal } from "./components/product/product-modal";
+
+const Products = React.lazy(() => import("./components/product/product-list"));
 
 export default function PointOfSales() {
     return (
-        <Layout>
-            <CategoryList />
-            <main className="no-scrollbar overflow-y-auto">
-                <Products />
+        <div className="flex h-full">
+            <main className="flex basis-full flex-col gap-5 px-3">
+                <CategoryList />
+                <section className="no-scrollbar flex-1 overflow-y-auto">
+                    <Suspense fallback={<div>loading...</div>}>
+                        <Products />
+                    </Suspense>
+                </section>
             </main>
-        </Layout>
+
+            <ProductModal />
+        </div>
     );
 }
