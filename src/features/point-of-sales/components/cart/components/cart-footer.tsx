@@ -1,16 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/features/point-of-sales/store/cart-store";
+import { useCreateOrder } from "@/features/point-of-sales/hooks/useOrders";
 
 export function CartFooter() {
-    const { cartItems } = useCartStore();
-
-    const calculateSubtotal =
-        cartItems?.reduce((subTotal, item) => {
-            return subTotal + item.price * item.quantity;
-        }, 0) ?? 0;
-
-    const calculateVat = calculateSubtotal * 0.12;
-    const totalPrice = calculateSubtotal + calculateVat;
+    const { subTotal, vat, total } = useCartStore();
 
     return (
         <div className="footer flex-none">
@@ -22,7 +15,7 @@ export function CartFooter() {
                     </div>
 
                     <span className="basis-1/3 text-end">
-                        {calculateSubtotal.toFixed(2)}
+                        {subTotal().toFixed(2)}
                     </span>
                 </div>
                 <div className="label flex justify-between">
@@ -32,7 +25,7 @@ export function CartFooter() {
                     </div>
 
                     <span className="basis-1/3 text-end">
-                        {calculateVat.toFixed(2)}
+                        {vat().toFixed(2)}
                     </span>
                 </div>
             </div>
@@ -44,14 +37,37 @@ export function CartFooter() {
                     </div>
 
                     <span className="basis-1/3 text-end">
-                        {totalPrice.toFixed(2)}
+                        {total().toFixed(2)}
                     </span>
                 </div>
             </div>
 
-            <Button className="w-full cursor-pointer rounded-t-none bg-blue-500 p-10 text-center text-xl text-white hover:bg-blue-700">
-                Place Order
-            </Button>
+            <PlaceOrderButton />
         </div>
+    );
+}
+
+function PlaceOrderButton() {
+    const { cartItems, total, dineOption } = useCartStore();
+    const { mutate: createOrder, isPending } = useCreateOrder();
+
+    const isEmpty = cartItems.length === 0;
+
+    const handlePlaceOrder = () => {
+        createOrder({
+            orderData: cartItems,
+            dineOption: dineOption,
+            total: total(),
+        });
+    };
+
+    return (
+        <Button
+            disabled={isEmpty || isPending}
+            onClick={handlePlaceOrder}
+            className="w-full cursor-pointer rounded-t-none bg-blue-500 p-10 text-center text-xl text-white hover:bg-blue-700"
+        >
+            Place Order
+        </Button>
     );
 }

@@ -3,7 +3,7 @@ import { useCartStore } from "@/features/point-of-sales/store/cart-store";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function CartList() {
-    const { cartItems } = useCartStore();
+    const cartItems = useCartStore((state) => state.cartItems);
 
     const checkCartItems = !cartItems || cartItems.length === 0;
 
@@ -28,8 +28,9 @@ export function CartList() {
 }
 
 function CartItemCard(cartItem: CartItemTypes) {
-    const { id, name, image, price, quantity } = cartItem;
-    const { changeQuantity, removeCartItems } = useCartStore();
+    const { id, name, image, price, quantity, notes } = cartItem;
+    const changeQuantity = useCartStore((state) => state.changeQuantity);
+    const removeCartItems = useCartStore((state) => state.removeCartItems);
 
     return (
         <motion.div
@@ -67,7 +68,18 @@ function CartItemCard(cartItem: CartItemTypes) {
                             ₱ {(price * quantity).toFixed(2)}
                         </span>
                     </div>
-                    <div className="flex w-full justify-end">
+                    <div className="quantity-button flex w-full items-center justify-between">
+                        <div className="tool-tip-notes group relative z-20">
+                            <i
+                                className={`${notes ? "visible" : "invisible"} trigger fa-solid fa-pen cursor-pointer rounded-full bg-blue-500 p-2 text-white`}
+                            />
+                            {notes && (
+                                <div className="invisible absolute -top-[6rem] -left-[12.5rem] w-48 rounded-lg border-[2px] bg-white p-2 text-sm text-black shadow-2xl group-hover:visible">
+                                    {notes}
+                                </div>
+                            )}
+                        </div>
+
                         <div className="quantity-container flex w-2/3 items-center justify-between rounded-full bg-gray-200/20 p-2 py-2">
                             {quantity === 1 ? (
                                 <button

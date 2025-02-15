@@ -1,5 +1,5 @@
 import { ProductTypes } from "@/features/point-of-sales/lib/types";
-import { Badge } from "@/components/common/badge";
+import { Badge } from "@/components/custom/badge";
 import { useProductModalStore } from "../../store/product-modal-store";
 
 type ProductCardProps = {

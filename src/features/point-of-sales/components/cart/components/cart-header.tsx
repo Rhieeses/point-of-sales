@@ -7,6 +7,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import { useCartStore } from "@/features/point-of-sales/store/cart-store";
 
 export function CartHeader() {
     return (
@@ -21,16 +22,23 @@ export function CartHeader() {
                 <Pen className="svg-border size-[2.5rem] stroke-black p-2" />
             </div>
             <div className="flex gap-5 p-5">
-                <SelectDemo />
-                <SelectDemo />
+                <DineOptions />
             </div>
         </div>
     );
 }
 
-export function SelectDemo() {
+type dineType = "dine-in" | "take-out";
+
+export function DineOptions() {
+    const dineOption = useCartStore((state) => state.dineOption);
+    const setDineOption = useCartStore((state) => state.setDineOption);
+
     return (
-        <Select>
+        <Select
+            value={dineOption}
+            onValueChange={(value: dineType) => setDineOption(value)}
+        >
             <SelectTrigger className="text-md w-1/2 rounded-full border-0 bg-gray-300/20 p-6 outline-0">
                 <SelectValue placeholder="Dine In" />
             </SelectTrigger>

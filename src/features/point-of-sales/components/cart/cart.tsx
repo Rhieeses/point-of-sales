@@ -1,6 +1,4 @@
-import { CartHeader } from "./components/cart-header";
-import { CartList } from "./components/cart-list";
-import { CartFooter } from "./components/cart-footer";
+import { CartHeader, CartList, CartFooter } from "./components";
 
 export function Cart() {
     return (

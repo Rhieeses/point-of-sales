@@ -2,16 +2,24 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { CartItemTypes } from "../lib/types";
 
+type dineType = "dine-in" | "take-out";
+
 type CartStore = {
     cartItems: CartItemTypes[];
     addCartItems: (newCartItem: CartItemTypes[]) => void;
     removeCartItems: (itemId: number) => void;
     changeQuantity: (itemId: number, type: "increment" | "decrement") => void;
+    dineOption: dineType;
+    setDineOption: (option: dineType) => void;
+    subTotal: () => number;
+    vat: () => number;
+    total: () => number;
+    clearCart: () => void;
 };
 
 export const useCartStore = create<CartStore>()(
     persist(
-        (set) => ({
+        (set, get) => ({
             cartItems: [],
             addCartItems: (newCartItem) =>
                 set((state) => {
@@ -62,15 +70,33 @@ export const useCartStore = create<CartStore>()(
                                 : cartItem,
                         ) || [],
                 })),
+
+            clearCart: () => set(() => ({ cartItems: [] })),
+
+            subTotal: () =>
+                get().cartItems.reduce(
+                    (subTotal, items) =>
+                        subTotal + items.quantity * items.price,
+                    0,
+                ),
+            dineOption: "dine-in",
+            setDineOption: (option) => set(() => ({ dineOption: option })),
+
+            vat: () => get().subTotal() * 0.12,
+            total: () => get().subTotal() + get().vat(),
         }),
         {
             name: "cart-storage",
             storage: createJSONStorage(() => sessionStorage),
-            partialize: (state) => ({ cartItems: state.cartItems }),
+            skipHydration: false,
+            partialize: (state) => ({
+                cartItems: state.cartItems,
+                dineOption: state.dineOption,
+            }),
             onRehydrateStorage: () => {
-                return (error) => {
-                    if (error) {
-                        console.log("an error happened during hydration");
+                return (state) => {
+                    if (!state) {
+                        console.log("An error happened during hydration");
                     }
                 };
             },
@@ -130,4 +156,19 @@ export const useCartStore = create<CartStore>()(
                 ) || [],
         })),
 }));
+ */
+
+/**
+ * 
+ *     storage: createJSONStorage(() => {
+                if (typeof window !== "undefined") {
+                    return sessionStorage;
+                }
+                return {
+                    getItem: () => null,
+                    setItem: () => null,
+                    removeItem: () => null,
+                };
+            }),
+            skipHydration: true,
  */

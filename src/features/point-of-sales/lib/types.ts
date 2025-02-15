@@ -1,23 +1,24 @@
-export type CategoryTypes = {
+export interface CategoryTypes {
     id: number;
     name: string;
     icon: string;
     quantity: number;
-};
+}
 
-export type ProductTypes = {
+export interface ProductTypes {
     id: number;
     name: string;
     price: number;
     category: string;
     image: string;
     description: string;
-};
+}
 
-export type CartItemTypes = {
+export interface CartItemTypes {
     id: number;
     name: string;
     price: number;
     quantity: number;
     image: string;
-};
+    notes: string;
+}

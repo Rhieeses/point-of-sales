@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge } from "@/components/common/badge";
+import { Badge } from "@/components/custom/badge";
 import { ProductTypes } from "@/features/point-of-sales/lib/types";
 
 type ItemCardProps = {
