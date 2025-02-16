@@ -18,15 +18,17 @@ export function CategoryCard(categoryData: CategoryTypes) {
     return (
         <button
             onClick={() => handleChangeCategory(name)}
-            className={` ${cardStyle} ${category === name && "!bg-blue-100/50 outline-2"} `}
+            className={`group ${cardStyle} ${category === name && "!bg-blue-100/50 text-blue-500 outline-2"} flex size-[12rem] shrink-0 flex-col justify-evenly bg-black active:!text-blue-500`}
         >
             <div
-                className={`${category === name ? "bg-blue-500 text-white" : "bg-gray-200/40"} ${iconStyle}`}
+                className={`${category === name ? "bg-blue-500" : "bg-gray-200/40"} ${iconStyle}`}
             >
-                <i className={`${icon}`} />
+                <i
+                    className={`${icon} ${category === name ? "text-white" : "text-gray-400"} group-active:text-white`}
+                />
             </div>
 
-            <div className="grid">
+            <div className="place grid text-start">
                 <h2 className="text-lg">{name}</h2>
                 <span className="label">{quantity} items</span>
             </div>

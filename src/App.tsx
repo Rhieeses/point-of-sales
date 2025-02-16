@@ -23,9 +23,8 @@ function App() {
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Layout />}>
-                        <Route index element={<PointOfSales />} />
-                    </Route>
+                    <Route path="/" element={<PointOfSales />} />
+
                     <Route path="/inventory" element={<Inventory />} />
                 </Routes>
             </BrowserRouter>

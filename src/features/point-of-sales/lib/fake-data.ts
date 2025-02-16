@@ -156,6 +156,12 @@ export const categories = [
         name: "Smoothies",
         quantity: 20,
     },
+    {
+        id: 15,
+        icon: "fa-solid fa-blender",
+        name: "Smoothies",
+        quantity: 20,
+    },
 ];
 
 export const CartListData = [

@@ -1,6 +1,12 @@
 import { CartItemTypes } from "@/features/point-of-sales/lib/types";
 import { useCartStore } from "@/features/point-of-sales/store/cart-store";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export const CartList = () => {
     const cartItems = useCartStore((state) => state.cartItems);
@@ -63,24 +69,32 @@ const CartItemCard = (cartItem: CartItemTypes) => {
 
                 <div className="flex h-full w-full flex-col items-start justify-between">
                     <div>
-                        <h2 className="font-semibold">{name}</h2>
+                        <h2 className="text-xl font-semibold">{name}</h2>
                         <span className="label">
                             ₱ {(price * quantity).toFixed(2)}
                         </span>
                     </div>
                     <div className="quantity-button flex w-full items-center justify-between">
                         <div className="tool-tip-notes group relative z-20">
-                            <i
-                                className={`${notes ? "visible" : "invisible"} trigger fa-solid fa-pen cursor-pointer rounded-full bg-blue-500 p-2 text-white`}
-                            />
-                            {notes && (
-                                <div className="invisible absolute -top-[6rem] -left-[12.5rem] w-48 rounded-lg border-[2px] bg-white p-2 text-sm text-black shadow-2xl group-hover:visible">
-                                    {notes}
-                                </div>
-                            )}
+                            <TooltipProvider>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <button
+                                            className={`${notes ? "bg-blue-500 text-white" : "bg-gray-100 text-black"} trigger fa-solid fa-pen relative cursor-pointer rounded-full p-2`}
+                                        />
+                                    </TooltipTrigger>
+                                    <TooltipContent
+                                        className={`${notes ? "visible" : "invisible"} bg-blue-500`}
+                                    >
+                                        <p className="w-fit text-lg capitalize">
+                                            {notes}
+                                        </p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
                         </div>
 
-                        <div className="quantity-container flex w-2/3 items-center justify-between rounded-full bg-gray-200/20 p-2 py-2">
+                        <div className="quantity-container flex w-1/2 items-center justify-between rounded-full bg-gray-200/20 p-2 py-2">
                             {quantity === 1 ? (
                                 <button
                                     onClick={() => removeCartItems(id)}
