@@ -1,13 +1,13 @@
 import { create } from "zustand";
 import { ProductTypes } from "../lib/types";
 
-type ProductModal = {
+interface ProductModal {
     product: ProductTypes | null;
     openModal: boolean;
     setOpenModal: (isOpen: boolean) => void;
     handleItemClick: (product: ProductTypes) => void;
     handleCloseModal: () => void;
-};
+}
 
 export const useProductModalStore = create<ProductModal>((set) => ({
     openModal: false,

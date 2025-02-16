@@ -2,7 +2,7 @@ import { CartItemTypes } from "@/features/point-of-sales/lib/types";
 import { useCartStore } from "@/features/point-of-sales/store/cart-store";
 import { motion, AnimatePresence } from "framer-motion";
 
-export function CartList() {
+export const CartList = () => {
     const cartItems = useCartStore((state) => state.cartItems);
 
     const checkCartItems = !cartItems || cartItems.length === 0;
@@ -25,9 +25,9 @@ export function CartList() {
             )}
         </div>
     );
-}
+};
 
-function CartItemCard(cartItem: CartItemTypes) {
+const CartItemCard = (cartItem: CartItemTypes) => {
     const { id, name, image, price, quantity, notes } = cartItem;
     const changeQuantity = useCartStore((state) => state.changeQuantity);
     const removeCartItems = useCartStore((state) => state.removeCartItems);
@@ -107,4 +107,4 @@ function CartItemCard(cartItem: CartItemTypes) {
             </div>
         </motion.div>
     );
-}
+};

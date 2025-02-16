@@ -30,7 +30,7 @@ export function CartHeader() {
 
 type dineType = "dine-in" | "take-out";
 
-export function DineOptions() {
+const DineOptions = () => {
     const dineOption = useCartStore((state) => state.dineOption);
     const setDineOption = useCartStore((state) => state.setDineOption);
 
@@ -50,4 +50,4 @@ export function DineOptions() {
             </SelectContent>
         </Select>
     );
-}
+};

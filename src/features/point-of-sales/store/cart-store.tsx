@@ -2,20 +2,20 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { CartItemTypes } from "../lib/types";
 
-type dineType = "dine-in" | "take-out";
+type DineType = "dine-in" | "take-out";
 
-type CartStore = {
+interface CartStore {
     cartItems: CartItemTypes[];
     addCartItems: (newCartItem: CartItemTypes[]) => void;
     removeCartItems: (itemId: number) => void;
     changeQuantity: (itemId: number, type: "increment" | "decrement") => void;
-    dineOption: dineType;
-    setDineOption: (option: dineType) => void;
+    dineOption: DineType;
+    setDineOption: (option: DineType) => void;
     subTotal: () => number;
     vat: () => number;
     total: () => number;
     clearCart: () => void;
-};
+}
 
 export const useCartStore = create<CartStore>()(
     persist(

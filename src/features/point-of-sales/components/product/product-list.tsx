@@ -1,11 +1,12 @@
 import { useMemo } from "react";
 import { useCategoryStore } from "../../store/category-store";
-import { ProductList } from "@/fake-data";
+import { ProductList } from "@/features/point-of-sales/lib/fake-data";
 import { ProductCard } from "../product/products-card";
 
 export default function Products() {
     const { category } = useCategoryStore();
 
+    //function to filter the products based on the current category
     const filteredProducts = useMemo(() => {
         const categoryLowercased = category.toLocaleLowerCase();
 

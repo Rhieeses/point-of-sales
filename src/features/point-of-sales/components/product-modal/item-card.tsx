@@ -10,7 +10,6 @@ function ItemCard({ product }: ItemCardProps) {
     if (!product) {
         return <div>No selected items</div>;
     }
-    console.log("rendering card");
     const { image, name, description, price } = product;
 
     return (

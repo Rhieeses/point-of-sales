@@ -2,7 +2,7 @@ export const ProductList = [
     {
         id: 1,
         name: "Mocha Latte",
-        price: "150",
+        price: 150,
         category: "coffee",
         image: "https://images.pexels.com/photos/350478/pexels-photo-350478.jpeg?auto=compress&cs=tinysrgb",
         description:
@@ -11,7 +11,7 @@ export const ProductList = [
     {
         id: 2,
         name: "Caramel Macchiato",
-        price: "160",
+        price: 160,
         category: "coffee",
         image: "https://images.pexels.com/photos/15086186/pexels-photo-15086186/free-photo-of-coffee-in-a-disposable-cup.jpeg?auto=compress&cs=tinysrgb",
         description:
@@ -20,7 +20,7 @@ export const ProductList = [
     {
         id: 3,
         name: "Mocha Cake",
-        price: "120",
+        price: 120,
         category: "cake",
         image: "https://images.pexels.com/photos/3734026/pexels-photo-3734026.jpeg?auto=compress&cs=tinysrgb",
         description:
@@ -29,7 +29,7 @@ export const ProductList = [
     {
         id: 4,
         name: "Americano",
-        price: "130",
+        price: 130,
         category: "coffee",
         image: "https://images.pexels.com/photos/23503917/pexels-photo-23503917/free-photo-of-pouring-tea-into-a-cup.jpeg?auto=compress&cs=tinysrgb",
         description:
@@ -38,7 +38,7 @@ export const ProductList = [
     {
         id: 5,
         name: "Cappuccino",
-        price: "155",
+        price: 155,
         category: "coffee",
         image: "https://images.pexels.com/photos/302904/pexels-photo-302904.jpeg?auto=compress&cs=tinysrgb",
         description:
@@ -47,7 +47,7 @@ export const ProductList = [
     {
         id: 6,
         name: "Matcha Latte",
-        price: "170",
+        price: 170,
         category: "tea",
         image: "https://images.pexels.com/photos/2611811/pexels-photo-2611811.jpeg?auto=compress&cs=tinysrgb",
         description:
@@ -56,7 +56,7 @@ export const ProductList = [
     {
         id: 7,
         name: "Chai Tea Latte",
-        price: "165",
+        price: 165,
         category: "tea",
         image: "https://images.pexels.com/photos/734983/pexels-photo-734983.jpeg?auto=compress&cs=tinysrgb",
         description:
@@ -65,7 +65,7 @@ export const ProductList = [
     {
         id: 8,
         name: "Hot Chocolate",
-        price: "140",
+        price: 140,
         category: "beverage",
         image: "https://images.pexels.com/photos/3551717/pexels-photo-3551717.png?auto=compress&cs=tinysrgb",
         description:
@@ -74,7 +74,7 @@ export const ProductList = [
     {
         id: 9,
         name: "Iced Vanilla Latte",
-        price: "175",
+        price: 175,
         category: "coffee",
         image: "https://images.pexels.com/photos/350478/pexels-photo-350478.jpeg?auto=compress&cs=tinysrgb",
         description:
@@ -83,7 +83,7 @@ export const ProductList = [
     {
         id: 10,
         name: "Strawberry Smoothie",
-        price: "180",
+        price: 180,
         category: "smoothie",
         image: "https://images.pexels.com/photos/11976986/pexels-photo-11976986.jpeg?auto=compress&cs=tinysrgb",
         description:
@@ -92,7 +92,7 @@ export const ProductList = [
     {
         id: 18,
         name: "Hot Chocolate",
-        price: "140",
+        price: 140,
         category: "beverage",
         image: "https://images.pexels.com/photos/3551717/pexels-photo-3551717.png?auto=compress&cs=tinysrgb",
         description:
@@ -101,7 +101,7 @@ export const ProductList = [
     {
         id: 19,
         name: "Iced Vanilla Latte",
-        price: "175",
+        price: 175,
         category: "coffee",
         image: "https://images.pexels.com/photos/350478/pexels-photo-350478.jpeg?auto=compress&cs=tinysrgb",
         description:
@@ -110,7 +110,7 @@ export const ProductList = [
     {
         id: 11,
         name: "Strawberry Smoothie",
-        price: "180",
+        price: 180,
         category: "smoothie",
         image: "https://images.pexels.com/photos/11976986/pexels-photo-11976986.jpeg?auto=compress&cs=tinysrgb",
         description:

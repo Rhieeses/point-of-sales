@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useProductModalStore } from "../../store/product-modal-store";
+import { useCartStore } from "../../store/cart-store";
 import {
     Dialog,
     DialogContent,
@@ -11,11 +12,12 @@ import {
 import { Minus, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ItemCard from "./item-card";
-import { useCartStore } from "../../store/cart-store";
 
 export function ProductModal() {
     const [quantity, setQuantity] = useState<number>(1);
     const [notes, setNotes] = useState<string | null>("");
+
+    console.log("rendering modal");
 
     //store initialization
     const product = useProductModalStore((state) => state.product);
@@ -53,7 +55,7 @@ export function ProductModal() {
             price: product?.price || 0,
             image: product?.image || "",
             quantity: quantity,
-            notes: notes,
+            notes: notes || "",
         };
 
         await new Promise((resolve) => setTimeout(resolve, 0));
@@ -66,6 +68,11 @@ export function ProductModal() {
     };
 
     if (!product) return null;
+
+    //function to get the price of the item and multiply it to the quantity
+    const productPrice = () => {
+        return (product.price * quantity).toFixed(2);
+    };
 
     return (
         <Dialog open={openModal}>
@@ -108,7 +115,7 @@ export function ProductModal() {
                         onClick={handleAddToCart}
                         className="w-full cursor-pointer rounded-t-none bg-blue-700 p-10 text-center text-lg hover:bg-blue-900"
                     >
-                        Add to Cart ( ₱{product?.price}.00 )
+                        Add to Cart ( ₱{productPrice()})
                     </Button>
                 </DialogFooter>
             </DialogContent>

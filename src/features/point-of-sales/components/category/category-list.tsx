@@ -1,4 +1,4 @@
-import { categories } from "@/fake-data";
+import { categories } from "@/features/point-of-sales/lib/fake-data";
 import { CategoryCard } from "./category-card";
 
 export function CategoryList() {

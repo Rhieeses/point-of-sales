@@ -16,7 +16,7 @@ export function CategoryCard(categoryData: CategoryTypes) {
         "svg-border p-5 py-4 text-3xl text-blue-400 group-active:bg-blue-500 group-active:text-white";
 
     return (
-        <div
+        <button
             onClick={() => handleChangeCategory(name)}
             className={` ${cardStyle} ${category === name && "!bg-blue-100/50 outline-2"} `}
         >
@@ -30,6 +30,6 @@ export function CategoryCard(categoryData: CategoryTypes) {
                 <h2 className="text-lg">{name}</h2>
                 <span className="label">{quantity} items</span>
             </div>
-        </div>
+        </button>
     );
 }

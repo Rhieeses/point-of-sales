@@ -1,9 +1,9 @@
 import { create } from "zustand";
 
-type CategoryStore = {
+interface CategoryStore {
     category: string;
     changeCategory: (newCategory: string) => void;
-};
+}
 
 export const useCategoryStore = create<CategoryStore>((set) => ({
     category: "All Menu",

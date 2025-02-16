@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/features/point-of-sales/store/cart-store";
 import { useCreateOrder } from "@/features/point-of-sales/hooks/useOrders";
 
-export function CartFooter() {
+export const CartFooter = () => {
     const { subTotal, vat, total } = useCartStore();
 
     return (
@@ -45,9 +45,9 @@ export function CartFooter() {
             <PlaceOrderButton />
         </div>
     );
-}
+};
 
-function PlaceOrderButton() {
+const PlaceOrderButton = () => {
     const { cartItems, total, dineOption } = useCartStore();
     const { mutate: createOrder, isPending } = useCreateOrder();
 
@@ -70,4 +70,4 @@ function PlaceOrderButton() {
             Place Order
         </Button>
     );
-}
+};

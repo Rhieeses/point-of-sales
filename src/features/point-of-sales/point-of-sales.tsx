@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { CategoryList } from "./components/category/category-list";
-import { ProductModal } from "./components/product/product-modal";
+import { ProductModal } from "./components/product-modal/product-modal";
 
 const Products = React.lazy(() => import("./components/product/product-list"));
 
